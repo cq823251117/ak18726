@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="substituteLovVO"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="train.oracle.apps.ak.ak18726.lov.server.substituteLovVORowImpl"
+   ComponentClass="train.oracle.apps.ak.ak18726.lov.server.substituteLovVOImpl"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT DISTINCT fu.USER_NAME, fu.USER_ID
+  FROM cux_14497_PROCUREMENT_HEADERS cph,
+       cux_14497_PROCUREMENT_DETAILS cpd,
+       fnd_user                      fu
+ WHERE cph.procurement_approval_id = cpd.procurement_approval_id
+   and cph.group_kbn = 'CQ'
+   AND cpd.contact_person_fnd_user_id = fnd_global.user_id
+   and fu.USER_ID = cpd.contact_person_fnd_user_id
+   and cpd.contact_person_fnd_user_id = fnd_global.user_id and (cpd.substitute_fnd_user_id_1 = fnd_global.user_id or cpd.substitute_fnd_user_id_2 = fnd_global.user_id)
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <ViewAttribute
+      Name="UserName"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="USER_NAME"
+      Expression="USER_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="UserId"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="15"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="USER_ID"
+      Expression="USER_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

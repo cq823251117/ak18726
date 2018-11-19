@@ -1,0 +1,247 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="pageLayout2" amDefName="train.oracle.apps.ak.ak18726.server.test1AM" controllerClass="train.oracle.apps.ak.ak18726.webui.test2CO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:messageComponentLayout id="messageComponentLayout1">
+               <ui:contents>
+                  <oa:messageLayout id="messageLayout1">
+                     <ui:contents>
+                        <oa:header id="header1" text="期首単価スライド指示-Y品番明細画面">
+                           <ui:contents>
+                              <oa:pageButtonBar id="pageButtonBar1">
+                                 <ui:contents>
+                                    <oa:submitButton id="preButton" text="前" prompt="前"/>
+                                    <oa:submitButton id="nextButton" text="次" prompt="次"/>
+                                    <oa:submitButton id="return" text="戻る" prompt="戻る"/>
+                                 </ui:contents>
+                              </oa:pageButtonBar>
+                           </ui:contents>
+                        </oa:header>
+                        <oa:tableLayout id="region155" hAlign="left">
+                           <ui:contents>
+                              <oa:rowLayout id="rowLayout1">
+                                 <ui:contents>
+                                    <oa:cellFormat id="region1">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="message" prompt="適用期間"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region156">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="appricablePeriodFrom" viewName="testHeadVO1" viewAttr="AppricablePeriodFrom" disabled="true"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region157">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="item12" prompt="~"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region158">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="appricablePeriodTo" viewName="testHeadVO1" viewAttr="AppricablePeriodTo" disabled="true"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                 </ui:contents>
+                              </oa:rowLayout>
+                              <oa:rowLayout id="rowLayout2">
+                                 <ui:contents>
+                                    <oa:cellFormat id="region6">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="item4" prompt="ステータス"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region7">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="item5" viewName="testHeadVO1" viewAttr="VoStatus" disabled="true"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region8">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="item6" prompt="仕入先"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region9">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="supplierCode" viewName="testHeadVO1" viewAttr="SupplierCode" disabled="true"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region10">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="supplierName" viewName="testHeadVO1" viewAttr="SupplierName" disabled="true"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region11">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="item9" prompt="点数"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region12">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="CountNum" viewName="testHeadVO1" viewAttr="VoCountNum" disabled="true"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                 </ui:contents>
+                              </oa:rowLayout>
+                              <oa:rowLayout id="rowLayout3">
+                                 <ui:contents>
+                                    <oa:cellFormat id="region159">
+                                       <ui:contents>
+                                          <oa:spacer id="item14"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region1592">
+                                       <ui:contents>
+                                          <oa:spacer id="item142"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region1593">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="item143" prompt="下請"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region1594">
+                                       <ui:contents>
+                                          <oa:messageCheckBox id="subcontractActCls" viewName="testHeadVO1" viewAttr="VoSubcontractActCls" disabled="true"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region15923">
+                                       <ui:contents>
+                                          <oa:spacer id="item1423"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region15924">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="item1424" prompt="６ヶ月金額"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region15925">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="sumAmount" viewName="testHeadVO1" viewAttr="Sumamount" disabled="true"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                 </ui:contents>
+                              </oa:rowLayout>
+                              <oa:rowLayout id="rowLayout4">
+                                 <ui:contents>
+                                    <oa:cellFormat id="region15926">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="item1426" prompt="調達係"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region15927">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="procurementGroupCode" viewName="testHeadVO1" viewAttr="ProcurementGroupCode" disabled="true"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region15928">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="item1428" prompt="メーカー"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region15929">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="makeCode" viewName="testHeadVO1" viewAttr="MakerCode" disabled="true"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region15930">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="makeName" viewName="testHeadVO1" viewAttr="MakerName" disabled="true"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                 </ui:contents>
+                              </oa:rowLayout>
+                              <oa:rowLayout id="rowLayout5">
+                                 <ui:contents>
+                                    <oa:cellFormat id="region15931">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="item1431" prompt="調達担当"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region15932">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="procurementPersonCode" viewName="testHeadVO1" viewAttr="ProcurementPersonCode" disabled="true"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region15933">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="item1433" prompt="通貨コード"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region15934">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="currencyCode" viewName="testHeadVO1" viewAttr="CurrencyCode" disabled="true"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                 </ui:contents>
+                              </oa:rowLayout>
+                           </ui:contents>
+                        </oa:tableLayout>
+                     </ui:contents>
+                  </oa:messageLayout>
+                  <oa:messageLayout id="messageLayout2">
+                     <ui:contents>
+                        <oa:header id="header2"/>
+                        <oa:advancedTable id="advancedTable1" viewName="testBodyVO1">
+                           <ui:contents>
+                              <oa:column id="column1">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader1" prompt="Y品番"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="YitemNo" viewAttr="YItemNo"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column2">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader2" prompt="品名"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="ItemName" viewAttr="ItemName"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column3">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader3" prompt="購入単価"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="purchaseUnitPrice" viewAttr="MonthsPurchasePrice6"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column4">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader4" prompt="6ヶ月金額"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="sumAmount2" viewAttr="MonthsPurchasePrice6"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column5">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader5" prompt="ツールNo"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="toolNum" viewAttr="ToolNo"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column6">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader6" prompt="スペック"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="specIron" viewAttr="Spec"/>
+                                 </ui:contents>
+                              </oa:column>
+                           </ui:contents>
+                        </oa:advancedTable>
+                     </ui:contents>
+                  </oa:messageLayout>
+               </ui:contents>
+            </oa:messageComponentLayout>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

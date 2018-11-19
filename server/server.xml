@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="server"
+   SeparateXMLFiles="true"
+   PackageName="train.oracle.apps.ak.ak18726.server" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+   </DesignTime>
+   <Containee
+      Name="test1AM"
+      FullName="train.oracle.apps.ak.ak18726.server.test1AM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="test1VO"
+      FullName="train.oracle.apps.ak.ak18726.server.test1VO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="testBodyVO"
+      FullName="train.oracle.apps.ak.ak18726.server.testBodyVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="testHeadVO"
+      FullName="train.oracle.apps.ak.ak18726.server.testHeadVO"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>

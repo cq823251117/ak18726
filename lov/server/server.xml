@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="server"
+   SeparateXMLFiles="true"
+   PackageName="train.oracle.apps.ak.ak18726.lov.server" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+   </DesignTime>
+   <Containee
+      Name="groupLovAM"
+      FullName="train.oracle.apps.ak.ak18726.lov.server.groupLovAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="groupLovVO"
+      FullName="train.oracle.apps.ak.ak18726.lov.server.groupLovVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="lovAM"
+      FullName="train.oracle.apps.ak.ak18726.lov.server.lovAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="lovVO"
+      FullName="train.oracle.apps.ak.ak18726.lov.server.lovVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="personLovAM"
+      FullName="train.oracle.apps.ak.ak18726.lov.server.personLovAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="personLovOV"
+      FullName="train.oracle.apps.ak.ak18726.lov.server.personLovOV"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="substituteLovAM"
+      FullName="train.oracle.apps.ak.ak18726.lov.server.substituteLovAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="substituteLovVO"
+      FullName="train.oracle.apps.ak.ak18726.lov.server.substituteLovVO"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>

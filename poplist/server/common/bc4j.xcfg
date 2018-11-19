@@ -1,0 +1,28 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig>
+   <AppModuleConfigBag>
+      <AppModuleConfig name="poplistAMLocal">
+         <AppModuleJndiName>train.oracle.apps.ak.ak18726.poplist.server.poplistAM</AppModuleJndiName>
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <JDBCName>DBConnection1</JDBCName>
+         <ApplicationName>train.oracle.apps.ak.ak18726.poplist.server.poplistAM</ApplicationName>
+         <jbo.project>OTest</jbo.project>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <ConnectionDefinition name="DBConnection1">
+      <ENTRY name="JDBC_PORT" value="1531"/>
+      <ENTRY name="ConnectionType" value="JDBC"/>
+      <ENTRY name="HOSTNAME" value="192.168.11.225"/>
+      <ENTRY name="DeployPassword" value="true"/>
+      <ENTRY name="user" value="apps"/>
+      <ENTRY name="ConnectionName" value="DBConnection1"/>
+      <ENTRY name="SID" value="TRAIN"/>
+      <ENTRY name="Role" value="Normal"/>
+      <ENTRY name="password">
+         <![CDATA[{904}05EAA1B2010DCE9E33DBC20C1EFAE96897]]>
+      </ENTRY>
+      <ENTRY name="JdbcDriver" value="oracle.jdbc.OracleDriver"/>
+      <ENTRY name="ORACLE_JDBC_TYPE" value="thin"/>
+      <ENTRY name="DeployPassword" value="true"/>
+   </ConnectionDefinition>
+</BC4JConfig>

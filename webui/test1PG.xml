@@ -1,0 +1,443 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="pageLayoutRN" amDefName="train.oracle.apps.ak.ak18726.server.test1AM" title="" controllerClass="train.oracle.apps.ak.ak18726.webui.test1CO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:messageComponentLayout id="messageComponentLayout1" sortState="yes">
+               <ui:contents>
+                  <oa:messageLayout id="messageLayout1">
+                     <ui:contents>
+                        <oa:header id="header1" text="期首スライド指示画面">
+                           <ui:contents>
+                              <oa:pageButtonBar id="pageButtonBar1">
+                                 <ui:contents>
+                                    <oa:button id="closeButton" text="close" prompt="close"/>
+                                 </ui:contents>
+                              </oa:pageButtonBar>
+                           </ui:contents>
+                        </oa:header>
+                        <oa:tableLayout id="tableLaout1" hAlign="left">
+                           <ui:contents>
+                              <oa:rowLayout id="rowLayout1" hAlign="left">
+                                 <ui:contents>
+                                    <oa:cellFormat id="rl1prompt" hAlign="left">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="statusPrompt1" prompt="ステータス"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="rl1Text">
+                                       <ui:contents>
+                                          <oa:messageChoice id="status1" pickListViewDef="train.oracle.apps.ak.ak18726.poplist.server.poplistVO" pickListDispAttr="Meaning" pickListValAttr="LookupCode"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="spacer1" columnSpan="1" height="1" width="2">
+                                       <ui:contents>
+                                          <oa:spacer id="spacerl1" width="10"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="space2">
+                                       <ui:contents>
+                                          <oa:spacer id="spacel2" width="10"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="rl2prompt">
+                                       <ui:contents>
+                                          <oa:staticStyledText id="suppliercodeprompt" text="仕入先コード" prompt="仕入先コード"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="rl2">
+                                       <ui:contents>
+                                          <oa:tableLayout id="suppliertable" hAlign="center">
+                                             <ui:contents>
+                                                <oa:rowLayout id="suppliercodecell">
+                                                   <ui:contents>
+                                                      <oa:cellFormat id="region3">
+                                                         <ui:contents>
+                                                            <oa:messageLovInput id="suppliercodeQ" queryable="true" externalListOfValues="/train/oracle/apps/ak/ak18726/lov/webui/lovRN" unvalidated="true" columns="4">
+                                                               <lovMappings>
+                                                                  <lovMap id="SupplierCodeMap" lovItem="SupplierCode" resultTo="suppliercodeQ" criteriaFrom="suppliercodeQ"/>
+                                                                  <lovMap id="SupplierNameFvMap" lovItem="KanjiSupplierName" resultTo="SupplierNameQ" criteriaFrom="SupplierNameQ"/>
+                                                               </lovMappings>
+                                                            </oa:messageLovInput>
+                                                            <oa:formValue id="supplierId"/>
+                                                         </ui:contents>
+                                                      </oa:cellFormat>
+                                                      <oa:cellFormat id="supplierNamecell">
+                                                         <ui:contents>
+                                                            <oa:messageTextInput id="SupplierNameQ" disabled="true"/>
+                                                            <oa:formValue id="SupplierNameFv"/>
+                                                         </ui:contents>
+                                                      </oa:cellFormat>
+                                                      <oa:cellFormat id="supplieridcell1"/>
+                                                   </ui:contents>
+                                                </oa:rowLayout>
+                                             </ui:contents>
+                                          </oa:tableLayout>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                 </ui:contents>
+                              </oa:rowLayout>
+                              <oa:rowLayout id="rowLayout2" hAlign="left">
+                                 <ui:contents>
+                                    <oa:cellFormat id="rl21prompt">
+                                       <ui:contents>
+                                          <oa:staticStyledText id="GroupTypePrompt" text="係" prompt="係"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="rl21text" columnSpan="1">
+                                       <ui:contents>
+                                          <oa:messageLovInput id="groupType" externalListOfValues="/train/oracle/apps/ak/ak18726/lov/webui/groupRN" unvalidated="true" columns="1">
+                                             <lovMappings>
+                                                <lovMap id="searchProcurementGroupCodeLM" lovItem="ProcurementGroupCode" resultTo="groupType" criteriaFrom="groupType"/>
+                                             </lovMappings>
+                                          </oa:messageLovInput>
+                                          <oa:formValue id="groupTypeFv"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="spacer21" columnSpan="1" width="2">
+                                       <ui:contents>
+                                          <oa:spacer id="spacer211"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="Spacer22">
+                                       <ui:contents>
+                                          <oa:spacer id="spacer22"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="rl22prompt">
+                                       <ui:contents>
+                                          <oa:staticStyledText id="substituteUserPrompt" text="代行処理対象" prompt="代行処理対象"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="rl22text">
+                                       <ui:contents>
+                                          <oa:messageLovInput id="Substitute" externalListOfValues="/train/oracle/apps/ak/ak18726/lov/webui/substituteRN" unvalidated="true" queryable="true" lookAheadSearchType="Contains">
+                                             <lovMappings>
+                                                <lovMap id="nameMap" lovItem="UserName" resultTo="Substitute" criteriaFrom="Substitute"/>
+                                                <lovMap id="userIdMap" lovItem="UserId" resultTo="Substitute" criteriaFrom="Substitute"/>
+                                             </lovMappings>
+                                          </oa:messageLovInput>
+                                          <oa:formValue id="SubstituteId"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                 </ui:contents>
+                              </oa:rowLayout>
+                              <oa:rowLayout id="rowLayout3" hAlign="left">
+                                 <ui:contents>
+                                    <oa:cellFormat id="rl31prompt">
+                                       <ui:contents>
+                                          <oa:staticStyledText id="personPrompt" text="担当" prompt="担当"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="rl31text">
+                                       <ui:contents>
+                                          <oa:messageLovInput id="procurementPersonCode" externalListOfValues="/train/oracle/apps/ak/ak18726/lov/webui/personRN" unvalidated="true" queryable="true" columns="1">
+                                             <lovMappings>
+                                                <lovMap id="searchProcurementPersonLM" lovItem="ProcurementPersonnelCode" resultTo="procurementPersonCode" criteriaFrom="procurementPersonCode"/>
+                                             </lovMappings>
+                                          </oa:messageLovInput>
+                                          <oa:formValue id="PersonFv"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region1911214" width="2">
+                                       <ui:contents>
+                                          <oa:spacer id="item2"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region1911215">
+                                       <ui:contents>
+                                          <oa:spacer id="item3"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                 </ui:contents>
+                              </oa:rowLayout>
+                              <oa:rowLayout id="rowLayout4" hAlign="left">
+                                 <ui:contents>
+                                    <oa:cellFormat id="region173">
+                                       <ui:contents>
+                                          <oa:submitButton id="QueryButton" text="検索" prompt="検索"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region174">
+                                       <ui:contents>
+                                          <oa:submitButton id="ClearButton" text="クリア" prompt="クリア"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                 </ui:contents>
+                              </oa:rowLayout>
+                           </ui:contents>
+                        </oa:tableLayout>
+                        <oa:formValue id="Org_id"/>
+                     </ui:contents>
+                  </oa:messageLayout>
+                  <oa:messageLayout id="messageLayout2">
+                     <ui:contents>
+                        <oa:header id="Header1">
+                           <ui:contents>
+                              <oa:rowLayout id="region176">
+                                 <ui:contents>
+                                    <oa:cellFormat id="region178">
+                                       <ui:contents>
+                                          <oa:submitButton id="PriceSlidButton" text="単価スライド" prompt="単価スライド"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="region179">
+                                       <ui:contents>
+                                          <oa:submitButton id="DetailButton" text="詳細" prompt="詳細"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                 </ui:contents>
+                              </oa:rowLayout>
+                              <oa:rowLayout id="RowText1">
+                                 <ui:contents>
+                                    <oa:cellFormat id="Item6_1">
+                                       <ui:contents>
+                                          <oa:staticStyledText id="item1" text="適用期間" prompt="適用期間"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="Item6_2">
+                                       <ui:contents>
+                                          <oa:spacer id="AppricablePeriod_spc1"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="Item6_3">
+                                       <ui:contents>
+                                          <oa:tableLayout id="AppricablePeriod" hAlign="center">
+                                             <ui:contents>
+                                                <oa:rowLayout id="region1711">
+                                                   <ui:contents>
+                                                      <oa:cellFormat id="region181">
+                                                         <ui:contents>
+                                                            <oa:messageTextInput id="AppricalePeriodForm" disabled="true"/>
+                                                         </ui:contents>
+                                                      </oa:cellFormat>
+                                                      <oa:cellFormat id="region1911212">
+                                                         <ui:contents>
+                                                            <oa:staticStyledText id="item_con" text="~" prompt="~"/>
+                                                         </ui:contents>
+                                                      </oa:cellFormat>
+                                                      <oa:cellFormat id="region191">
+                                                         <ui:contents>
+                                                            <oa:messageTextInput id="AppricalePeriodTo" disabled="true"/>
+                                                         </ui:contents>
+                                                      </oa:cellFormat>
+                                                   </ui:contents>
+                                                </oa:rowLayout>
+                                             </ui:contents>
+                                          </oa:tableLayout>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="Item6_4" hAlign="center">
+                                       <ui:contents>
+                                          <oa:spacer id="AppricablePeriod_spc2"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                    <oa:cellFormat id="ConstanText">
+                                       <ui:contents>
+                                          <oa:rawText id="ConstantText1" text="注意事項 &lt;p>・2、8月19日（休日の場合は、翌稼働日）20:00までに決裁完了してください。（事前決裁要） &lt;p>・2、8月20日（休日の場合は、翌稼働日）でステータスが&quot;決裁済&quot;と表示してある仕入先については、期首見積書は発行されず、価格申入書が発行されます。"/>
+                                       </ui:contents>
+                                    </oa:cellFormat>
+                                 </ui:contents>
+                              </oa:rowLayout>
+                           </ui:contents>
+                        </oa:header>
+                        <oa:advancedTable id="advancedTable" viewName="test1VO1">
+                           <ui:contents>
+                              <oa:column id="SelectionCo1">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="selectionCH" prompt="選択" sortState="yes"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageCheckBox id="selection" queryable="true" viewAttr="Selection"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="StatusCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="StatusCH" prompt="ステータス" sortState="yes"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="Status" viewAttr="VoStatus"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="procurementGroupCodeCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="ProcurementGroupCodeCH" prompt="調達係" sortState="yes"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="ProcurementGroupCodeCol" viewAttr="ProcurementGroupCode"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="ProcurementPersonCodeCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="ProcurementPersonCodeCH" prompt="調達担当"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="ProcurementPersonCode" viewAttr="ProcurementPersonCode"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="SupplierCodeCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="SupplierCodeCH" prompt="仕入先コード"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="SupplierCode" viewAttr="SupplierCode"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="SupplierNameCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="SupplierNameCH" prompt="仕入先名称"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="SupplierName" viewAttr="SupplierName"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="MakerCodeCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="MakerCodeCH" prompt="メーカーコード"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="MakerCode" viewAttr="MakerCode"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="XiaQingCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="XiaQingCH" prompt="下請" sortState="yes"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageCheckBox id="XiaQing" viewAttr="VoSubcontractActCls" queryable="true"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="MakerNameCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="MakerNameCH" prompt="メーカー名称"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="MakerName" viewAttr="MakerName"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="DianShuCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="VoCountNumCH" prompt="点数"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:tableLayout id="VoCountNumRN">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="VoCountNum" viewAttr="CountNum"/>
+                                       </ui:contents>
+                                    </oa:tableLayout>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="CurrencyCodeCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="CurrencyCodeCH" prompt="通貨コード"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="CurrencyCode" viewAttr="CurrencyCode"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="MonthsPurchasePrice6Col">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="MonthsPurchasePrice6CH" prompt="6ヶ月金額"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:tableLayout id="MonthsPurchasePrice6RN">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="MonthsPurchasePrice6" viewAttr="MonthsPurchasePrice6"/>
+                                       </ui:contents>
+                                    </oa:tableLayout>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="TLApprovalStatusCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="TLApprovalStatusCH" prompt="TL決裁ステータス"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="TLApprovalStatus" viewAttr="TlApprovalStatus"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="TLcaijuezeCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="TLcaijuezeCH" prompt="TL決裁者"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="TLcaijueze" viewAttr="TlApproverFndUserId"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="TLcaijuezhixingzheCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="TLcaijuezhidingzheCH" prompt="TL決裁実施者"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="VOTlImplUser" viewAttr="VoTlImplUser"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="TLjueceriCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="TLjueceriCH" prompt="TL決裁日"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="TLjueceri" viewAttr="TlApprovalDate"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="GMjuecezheCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="GMjuecezheCH" prompt="GM決裁者"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="GMjuecezhe" viewAttr="GmApproverFndUserId"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="GMshishizheCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="GMshishizheCH" prompt="GM決裁実施者"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="GMshishizhe" viewAttr="VoGmImplUser"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="GMjueceStatusCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="GMjueceStatusCH" prompt="GM決裁ステータス"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="GMjueceStatus" viewAttr="GmApprovalStatus"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="GMjueceriCol">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="GMjueceriCH" prompt="GM決裁日"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="GMjueceri" viewAttr="GmApprovalDate"/>
+                                 </ui:contents>
+                              </oa:column>
+                           </ui:contents>
+                           <ui:tableActions>
+                              <oa:rowLayout id="region1911213">
+                                 <ui:contents>
+                                    <oa:link id="link1" text="すべて選択">
+                                       <ui:primaryClientAction>
+                                          <ui:fireAction event="selectAll"/>
+                                       </ui:primaryClientAction>
+                                    </oa:link>
+                                    <oa:messageStyledText id="shuLine" prompt="|" columns="1"/>
+                                    <oa:link id="link2" text="選択解除">
+                                       <ui:primaryClientAction>
+                                          <ui:fireAction event="selectNone"/>
+                                       </ui:primaryClientAction>
+                                    </oa:link>
+                                 </ui:contents>
+                              </oa:rowLayout>
+                           </ui:tableActions>
+                        </oa:advancedTable>
+                     </ui:contents>
+                  </oa:messageLayout>
+               </ui:contents>
+            </oa:messageComponentLayout>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

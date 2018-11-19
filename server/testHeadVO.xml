@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="testHeadVO"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="train.oracle.apps.ak.ak18726.server.testHeadVORowImpl"
+   ComponentClass="train.oracle.apps.ak.ak18726.server.testHeadVOImpl"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT /*XXSO_SO_280*/
+  cbc.beginning_carryingover_id
+, cbc.appricable_period_from  --??????
+  , cbc.appricable_period_to  -- ??????
+  , OAF_14497_TOOL.get_lookup_meaning(iv_lookup_type => 'XXSO_ORIGINAL_INSTRUCT_STATUS'
+                                            , iv_lookup_code => cbc.status) AS vo_status  --?????  
+  , cbc.procurement_group_code  --???
+  , cbc.procurement_person_code  --????    
+  , (SELECT csi.supplier_code
+  FROM cux_14497_SUPPLIERS_INFO csi
+  WHERE csi.supplier_id = cbc.supplier_id
+  AND csi.org_id = cbc.org_id) AS supplier_code  --??????
+  , (SELECT csi.kanji_supplier_name
+  FROM cux_14497_SUPPLIERS_INFO csi
+  WHERE csi.supplier_id = cbc.supplier_id
+  AND csi.org_id = cbc.org_id) AS supplier_name  --?????  
+  , :1 AS vo_count_num  --??                    
+   , oaf_14497_tool.get_subct_act_cls(
+          in_supplier_id => cbc.supplier_id
+         ,iv_proc_group_code => cbc.procurement_group_code
+         ,iv_proc_personnel_code => cbc.procurement_person_code)   vo_subcontract_act_cls --??
+  , :2 AS sumamount  ---?????  
+  , (SELECT csi.supplier_code
+  FROM cux_14497_SUPPLIERS_INFO csi
+  WHERE csi.supplier_id = cbc.maker_id
+  AND csi.org_id = cbc.org_id) AS maker_code  --???????
+  , (SELECT csi.kanji_supplier_name
+  FROM cux_14497_SUPPLIERS_INFO csi
+  WHERE csi.supplier_id = cbc.maker_id
+  AND csi.org_id = cbc.org_id) AS maker_name  --??????                     
+  , cbc.currency_code  --.????? 
+  , cbc.supplier_id
+, cbc.maker_id
+FROM CUX_14497_BEGINNING_CARRYING cbc --????????????
+WHERE cbc.beginning_carryingover_id = :3
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <ViewAttribute
+      Name="BeginningCarryingoverId"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="BEGINNING_CARRYINGOVER_ID"
+      Expression="BEGINNING_CARRYINGOVER_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AppricablePeriodFrom"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="APPRICABLE_PERIOD_FROM"
+      Expression="APPRICABLE_PERIOD_FROM"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AppricablePeriodTo"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="APPRICABLE_PERIOD_TO"
+      Expression="APPRICABLE_PERIOD_TO"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="VoStatus"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VO_STATUS"
+      Expression="VO_STATUS"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ProcurementGroupCode"
+      IsPersistent="false"
+      Precision="2"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PROCUREMENT_GROUP_CODE"
+      Expression="PROCUREMENT_GROUP_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ProcurementPersonCode"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PROCUREMENT_PERSON_CODE"
+      Expression="PROCUREMENT_PERSON_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SupplierCode"
+      IsPersistent="false"
+      Precision="4"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SUPPLIER_CODE"
+      Expression="SUPPLIER_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SupplierName"
+      IsPersistent="false"
+      Precision="60"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SUPPLIER_NAME"
+      Expression="SUPPLIER_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="60" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="VoCountNum"
+      IsPersistent="false"
+      Precision="32"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VO_COUNT_NUM"
+      Expression="VO_COUNT_NUM"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="32" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="VoSubcontractActCls"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VO_SUBCONTRACT_ACT_CLS"
+      Expression="VO_SUBCONTRACT_ACT_CLS"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Sumamount"
+      IsPersistent="false"
+      Precision="32"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SUMAMOUNT"
+      Expression="SUMAMOUNT"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="32" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MakerCode"
+      IsPersistent="false"
+      Precision="4"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="MAKER_CODE"
+      Expression="MAKER_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MakerName"
+      IsPersistent="false"
+      Precision="60"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="MAKER_NAME"
+      Expression="MAKER_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="60" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CurrencyCode"
+      IsPersistent="false"
+      Precision="3"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CURRENCY_CODE"
+      Expression="CURRENCY_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="3" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SupplierId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="SUPPLIER_ID"
+      Expression="SUPPLIER_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MakerId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="MAKER_ID"
+      Expression="MAKER_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

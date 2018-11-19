@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="groupLovVO"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="train.oracle.apps.ak.ak18726.lov.server.groupLovVORowImpl"
+   ComponentClass="train.oracle.apps.ak.ak18726.lov.server.groupLovVOImpl"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT DISTINCT cph.procurement_group_code
+   FROM cux_14497_PROCUREMENT_HEADERS cph,
+        cux_14497_PROCUREMENT_DETAILS cpd
+  WHERE cph.procurement_approval_id = cpd.procurement_approval_id
+    and cph.group_kbn = 'CQ'
+    AND cpd.contact_person_fnd_user_id = fnd_global.user_id
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <ViewAttribute
+      Name="ProcurementGroupCode"
+      IsPersistent="false"
+      Precision="2"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PROCUREMENT_GROUP_CODE"
+      Expression="PROCUREMENT_GROUP_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

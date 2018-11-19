@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="testBodyVO"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="train.oracle.apps.ak.ak18726.server.testBodyVORowImpl"
+   ComponentClass="train.oracle.apps.ak.ak18726.server.testBodyVOImpl"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT cbc.y_item_no,
+       cyinm.item_name,
+       cbc.months_purchase_price_6,
+       cyinm.tool_no,
+       cyinsm.spec,
+       (SELECT csi.supplier_code
+          FROM cux_14497_SUPPLIERS_INFO csi
+         WHERE csi.supplier_id = cbc.supplier_id
+           AND csi.org_id = cbc.org_id) AS supplier_code,
+       (SELECT csi.supplier_code
+          FROM cux_14497_SUPPLIERS_INFO csi
+         WHERE csi.supplier_id = cbc.maker_id
+           AND csi.org_id = cbc.org_id) AS maker_code,
+       cbc.currency_code,
+       cbc.procurement_group_code,
+       cbc.procurement_person_code,
+       cbc.supplier_id,
+       cbc.maker_id,
+       cyinsm.mfg_maker_id
+  FROM CUX_14497_BEGINNING_CARRYING cbc,
+       CUX_14497_Y_ITEM_NUMBER_MST  cyinm,
+       CUX_14497_y_item_no_sup_mst  cyinsm,
+       mtl_system_items_b           msib,
+       financials_system_params_all fspa
+ WHERE fspa.inventory_organization_id = msib.organization_id
+   AND fspa.org_id = fnd_profile.value('ORG_ID')
+   AND msib.segment1 = cbc.y_item_no
+   AND msib.inventory_item_id = cyinm.inventory_item_id
+   AND msib.organization_id = cyinm.organization_id
+   AND cyinm.y_item_no_id = cyinsm.y_item_no_id
+   AND cbc.supplier_id = cyinsm.supplier_id
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <ViewAttribute
+      Name="YItemNo"
+      IsPersistent="false"
+      Precision="10"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="Y_ITEM_NO"
+      Expression="Y_ITEM_NO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="10" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ItemName"
+      IsPersistent="false"
+      Precision="45"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ITEM_NAME"
+      Expression="ITEM_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="45" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MonthsPurchasePrice6"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="MONTHS_PURCHASE_PRICE_6"
+      Expression="MONTHS_PURCHASE_PRICE_6"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ToolNo"
+      IsPersistent="false"
+      Precision="72"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="TOOL_NO"
+      Expression="TOOL_NO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="72" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Spec"
+      IsPersistent="false"
+      Precision="177"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SPEC"
+      Expression="SPEC"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="177" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SupplierCode"
+      IsPersistent="false"
+      Precision="4"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SUPPLIER_CODE"
+      Expression="SUPPLIER_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MakerCode"
+      IsPersistent="false"
+      Precision="4"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="MAKER_CODE"
+      Expression="MAKER_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CurrencyCode"
+      IsPersistent="false"
+      Precision="3"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CURRENCY_CODE"
+      Expression="CURRENCY_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="3" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ProcurementGroupCode"
+      IsPersistent="false"
+      Precision="2"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PROCUREMENT_GROUP_CODE"
+      Expression="PROCUREMENT_GROUP_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ProcurementPersonCode"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PROCUREMENT_PERSON_CODE"
+      Expression="PROCUREMENT_PERSON_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SupplierId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="SUPPLIER_ID"
+      Expression="SUPPLIER_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MakerId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="MAKER_ID"
+      Expression="MAKER_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MfgMakerId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="MFG_MAKER_ID"
+      Expression="MFG_MAKER_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>
